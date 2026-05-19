@@ -1,0 +1,583 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Harbor House Realty</title>
+  <meta name="description" content="A city-first real estate experience for buyers, sellers, and relocators who want a clear plan and a confident local advisor.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    .harbor-house {
+      --navy: #0f1722;
+      --navy2: #182434;
+      --bone: #f2e5d6;
+      --paper: #f8f2eb;
+      --ink: #f7f2ea;
+      --dark: #15110e;
+      --muted: rgba(247,242,234,.7);
+      --line: rgba(247,242,234,.12);
+      --brick: #8f3d35;
+      --copper: #bd8a52;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(191,138,82,.22), transparent 28rem),
+        linear-gradient(180deg, var(--navy), #111826 54%, #0d1016);
+      color: var(--ink);
+      font-family: "Bricolage Grotesque", sans-serif;
+      overflow: hidden;
+    }
+    .harbor-house *, .harbor-house *::before, .harbor-house *::after { box-sizing: border-box; }
+    .harbor-house a { color: inherit; text-decoration: none; }
+    .harbor-house img { display: block; max-width: 100%; height: auto; }
+    .harbor-house button, .harbor-house input, .harbor-house select, .harbor-house textarea { font: inherit; }
+    .harbor-house .wrap { width: min(1240px, calc(100% - 40px)); margin: 0 auto; }
+
+    .harbor-house .grain {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .18;
+      background-image:
+        linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px),
+        linear-gradient(rgba(255,255,255,.02) 1px, transparent 1px);
+      background-size: 36px 36px;
+      mask-image: linear-gradient(to bottom, black, transparent 82%);
+    }
+
+    .harbor-house .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(16,23,34,.9);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--line);
+    }
+    .harbor-house .nav-inner {
+      min-height: 80px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 24px;
+    }
+    .harbor-house .brand {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      line-height: .86;
+      letter-spacing: -.05em;
+      font-weight: 700;
+    }
+    .harbor-house .links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      color: rgba(247,242,234,.72);
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      font-size: .72rem;
+      font-weight: 800;
+    }
+    .harbor-house .btn {
+      min-height: 50px;
+      border: 1px solid rgba(247,242,234,.24);
+      border-radius: 999px;
+      padding: 14px 22px;
+      background: transparent;
+      color: var(--ink);
+      font-weight: 800;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: transform .24s cubic-bezier(.2,.8,.2,1), background .24s ease, border-color .24s ease, box-shadow .24s ease;
+    }
+    .harbor-house .btn:hover { transform: translateY(-3px); background: rgba(191,138,82,.18); border-color: rgba(191,138,82,.5); box-shadow: 0 18px 48px rgba(0,0,0,.16); }
+    .harbor-house .btn.red { background: var(--brick); border-color: var(--brick); }
+    .harbor-house .btn.red:hover { background: #9f4a40; }
+
+    .harbor-house .hero {
+      position: relative;
+      min-height: clamp(760px, 100vh, 980px);
+      padding: clamp(64px, 8vw, 100px) 0 clamp(42px, 6vw, 80px);
+      overflow: hidden;
+      border-bottom: 1px solid var(--line);
+    }
+    .harbor-house .hero-grid {
+      display: grid;
+      grid-template-columns: .95fr 1.05fr;
+      gap: 34px;
+      align-items: center;
+    }
+    .harbor-house .eyebrow {
+      margin: 0 0 18px;
+      text-transform: uppercase;
+      letter-spacing: .2em;
+      font-weight: 800;
+      font-size: .72rem;
+      color: var(--copper);
+    }
+    .harbor-house h1,
+    .harbor-house h2 {
+      margin: 0;
+      font-family: "Cormorant Garamond", serif;
+      line-height: .84;
+      letter-spacing: -.055em;
+      text-wrap: balance;
+    }
+    .harbor-house h1 { font-size: clamp(4.4rem, 9vw, 9rem); max-width: 9ch; }
+    .harbor-house h2 { font-size: clamp(3rem, 7vw, 6.7rem); }
+    .harbor-house .lead {
+      margin: 22px 0 0;
+      max-width: 60ch;
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: clamp(1rem, 1.45vw, 1.16rem);
+    }
+    .harbor-house .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .harbor-house .searchbar {
+      margin-top: 28px;
+      display: grid;
+      grid-template-columns: 1.1fr 1fr .7fr auto;
+      gap: 0;
+      border: 1px solid rgba(247,242,234,.16);
+      background: rgba(255,255,255,.04);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+    .harbor-house .searchbar input, .harbor-house .searchbar select {
+      min-height: 56px;
+      background: transparent;
+      color: var(--ink);
+      border: 0;
+      border-right: 1px solid rgba(247,242,234,.08);
+      padding: 0 18px;
+      min-width: 0;
+      outline: none;
+    }
+    .harbor-house .searchbar button { min-height: 56px; border-radius: 0; }
+
+    .harbor-house .hero-visual {
+      position: relative;
+      min-height: 720px;
+      display: grid;
+      align-items: end;
+    }
+    .harbor-house .hero-visual::before {
+      content: "";
+      position: absolute;
+      inset: 6% 2% 12% 18%;
+      border: 1px solid rgba(247,242,234,.08);
+      border-radius: 36px;
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.01));
+      transform: rotate(-2deg);
+    }
+    .harbor-house .hero-photo {
+      position: relative;
+      z-index: 1;
+      border-radius: 34px;
+      overflow: hidden;
+      box-shadow: 0 30px 100px rgba(0,0,0,.3);
+      border: 1px solid rgba(247,242,234,.1);
+    }
+    .harbor-house .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .harbor-house .hero-photo.main { min-height: 660px; }
+    .harbor-house .hero-photo.small {
+      position: absolute;
+      width: min(280px, 42vw);
+      height: 220px;
+      right: 0;
+      top: 10%;
+      transform: rotate(7deg);
+      border-radius: 24px;
+    }
+    .harbor-house .stamp {
+      position: absolute;
+      left: 0;
+      bottom: 4%;
+      width: min(280px, 40vw);
+      background: rgba(16,23,34,.84);
+      border: 1px solid rgba(247,242,234,.14);
+      border-radius: 24px;
+      padding: 22px;
+      backdrop-filter: blur(12px);
+    }
+    .harbor-house .stamp strong {
+      display: block;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2.1rem, 4vw, 3.2rem);
+      line-height: .86;
+      letter-spacing: -.05em;
+      margin-bottom: 10px;
+    }
+    .harbor-house .stamp p { margin: 0; color: rgba(247,242,234,.7); line-height: 1.6; }
+
+    .harbor-house .section { padding: clamp(72px, 10vw, 124px) 0; border-bottom: 1px solid var(--line); }
+    .harbor-house .section-intro {
+      display: grid;
+      justify-items: center;
+      text-align: center;
+      gap: 18px;
+      max-width: 920px;
+      margin: 0 auto clamp(34px, 6vw, 56px);
+    }
+
+    .harbor-house .city-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+    .harbor-house .city-card {
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid rgba(247,242,234,.12);
+      background: rgba(255,255,255,.05);
+      min-height: 360px;
+      transition: transform .24s cubic-bezier(.2,.8,.2,1), box-shadow .24s ease;
+    }
+    .harbor-house .city-card:hover { transform: translateY(-6px); box-shadow: 0 24px 60px rgba(0,0,0,.2); }
+    .harbor-house .city-card img { width: 100%; height: 220px; object-fit: cover; }
+    .harbor-house .city-card .body { padding: 20px; display: grid; gap: 10px; }
+    .harbor-house .city-card h3 { margin: 0; font-family: "Cormorant Garamond", serif; font-size: clamp(1.8rem, 3vw, 2.2rem); line-height: .88; letter-spacing: -.05em; }
+    .harbor-house .city-card p { margin: 0; color: var(--muted); line-height: 1.65; }
+    .harbor-house .city-card .tag { text-transform: uppercase; letter-spacing: .16em; color: var(--copper); font-size: .7rem; font-weight: 800; }
+
+    .harbor-house .feature-split {
+      display: grid;
+      grid-template-columns: .86fr 1.14fr;
+      gap: 24px;
+      align-items: center;
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+    .harbor-house .feature-copy {
+      border-radius: 28px;
+      padding: clamp(28px, 5vw, 48px);
+      border: 1px solid rgba(247,242,234,.12);
+      background: rgba(255,255,255,.04);
+    }
+    .harbor-house .feature-copy p { color: var(--muted); line-height: 1.8; margin: 0 0 18px; }
+    .harbor-house .testimonial {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      align-items: stretch;
+    }
+    .harbor-house .testimonial-card {
+      border-radius: 24px;
+      overflow: hidden;
+      position: relative;
+      min-height: 240px;
+      border: 1px solid rgba(247,242,234,.12);
+      background: rgba(255,255,255,.05);
+    }
+    .harbor-house .testimonial-card img { width: 100%; height: 100%; object-fit: cover; }
+    .harbor-house .quote {
+      position: absolute;
+      left: 16px;
+      right: 16px;
+      bottom: 16px;
+      background: rgba(16,23,34,.72);
+      border: 1px solid rgba(247,242,234,.12);
+      border-radius: 18px;
+      padding: 14px 16px;
+      backdrop-filter: blur(10px);
+    }
+    .harbor-house .quote strong { display: block; font-size: 1rem; margin-bottom: 8px; }
+    .harbor-house .quote p { margin: 0; color: rgba(247,242,234,.7); line-height: 1.55; }
+
+    .harbor-house .steps {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .harbor-house .step {
+      border: 1px solid rgba(247,242,234,.12);
+      border-radius: 22px;
+      padding: 22px;
+      min-height: 220px;
+      background: rgba(255,255,255,.04);
+      display: grid;
+      gap: 24px;
+      align-content: space-between;
+    }
+    .harbor-house .step span { color: var(--copper); text-transform: uppercase; letter-spacing: .16em; font-size: .72rem; font-weight: 800; }
+    .harbor-house .step h3 { margin: 0; font-family: "Cormorant Garamond", serif; font-size: clamp(1.9rem, 3vw, 2.6rem); line-height: .9; letter-spacing: -.05em; }
+    .harbor-house .step p { margin: 0; color: rgba(247,242,234,.68); line-height: 1.7; }
+
+    .harbor-house .cta-section { background: linear-gradient(180deg, #1a1010, #0f1722); }
+    .harbor-house .cta-shell {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      align-items: stretch;
+    }
+    .harbor-house .cta-copy {
+      display: grid;
+      align-content: center;
+      gap: 18px;
+      color: var(--ink);
+    }
+    .harbor-house .cta-image {
+      min-height: 520px;
+      overflow: hidden;
+      border-radius: 30px;
+      border: 1px solid rgba(247,242,234,.12);
+      position: relative;
+    }
+    .harbor-house .cta-image img { width: 100%; height: 100%; object-fit: cover; opacity: .78; }
+    .harbor-house .form {
+      position: absolute;
+      inset: auto 24px 24px 24px;
+      background: rgba(15,23,34,.75);
+      border: 1px solid rgba(247,242,234,.12);
+      border-radius: 24px;
+      padding: 20px;
+      backdrop-filter: blur(12px);
+    }
+    .harbor-house .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .harbor-house input, .harbor-house select {
+      width: 100%;
+      min-width: 0;
+      min-height: 56px;
+      border-radius: 999px;
+      border: 1px solid rgba(247,242,234,.16);
+      background: rgba(247,242,234,.06);
+      color: var(--ink);
+      padding: 0 18px;
+      outline: none;
+    }
+    .harbor-house input::placeholder { color: rgba(247,242,234,.72); }
+    .harbor-house option { color: #141414; }
+    .harbor-house .wide { grid-column: 1 / -1; }
+
+    .harbor-house .footer { padding: 34px 0; background: #0e1218; color: rgba(247,242,234,.66); }
+    .harbor-house .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 18px;
+      align-items: center;
+      font-size: .92rem;
+    }
+
+    .harbor-house .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .72s cubic-bezier(.16,1,.3,1), transform .72s cubic-bezier(.16,1,.3,1);
+    }
+    .harbor-house .reveal.is-visible { opacity: 1; transform: translateY(0); }
+    @media (max-width: 980px) {
+      .harbor-house .nav-inner { grid-template-columns: 1fr auto; }
+      .harbor-house .links { display: none; }
+      .harbor-house .hero-grid, .harbor-house .feature-split, .harbor-house .cta-shell, .harbor-house .footer-grid, .harbor-house .testimonial { grid-template-columns: 1fr; }
+      .harbor-house .hero-visual { min-height: 600px; }
+      .harbor-house .city-grid, .harbor-house .steps { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 620px) {
+      .harbor-house .wrap { width: min(100% - 28px, 1240px); }
+      .harbor-house .hero { padding-top: 56px; }
+      .harbor-house h1 { font-size: clamp(3.7rem, 17vw, 5.6rem); max-width: 10ch; }
+      .harbor-house h2 { font-size: clamp(2.8rem, 13vw, 4.3rem); }
+      .harbor-house .searchbar { grid-template-columns: 1fr; }
+      .harbor-house .searchbar input, .harbor-house .searchbar select { border-right: 0; border-bottom: 1px solid rgba(247,242,234,.08); }
+      .harbor-house .searchbar button { width: 100%; border-radius: 0 0 18px 18px; }
+      .harbor-house .hero-photo.small { position: relative; right: auto; top: auto; width: min(76vw, 280px); margin-left: auto; margin-top: -78px; }
+      .harbor-house .hero-photo.main { min-height: 460px; }
+      .harbor-house .cta-image { min-height: 480px; }
+      .harbor-house .form-grid { grid-template-columns: 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .harbor-house *, .harbor-house *::before, .harbor-house *::after { animation: none !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+      .harbor-house .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="harbor-house">
+    <div class="grain" aria-hidden="true"></div>
+    <header class="nav">
+      <div class="wrap nav-inner">
+        <a class="brand" href="#">Harbor House</a>
+        <nav class="links" aria-label="Primary">
+          <a href="#districts">Districts</a>
+          <a href="#stories">Stories</a>
+          <a href="#sell">Sell</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <button class="btn red" data-scroll="#contact">Book a valuation</button>
+      </div>
+    </header>
+    <main>
+      <section class="hero">
+        <div class="wrap hero-grid">
+          <div class="hero-copy reveal">
+            <p class="eyebrow">A city-first brokerage for buyers, sellers, and relocators</p>
+            <h1>The right address is a strategy.</h1>
+            <p class="lead">Search the city with one advisor who knows how to compare timing, location, and leverage, then move with more clarity than the market expects.</p>
+            <div class="hero-actions">
+              <button class="btn red" data-scroll="#districts">Browse districts</button>
+              <button class="btn" data-scroll="#contact">Ask for a plan</button>
+            </div>
+            <div class="searchbar">
+              <input aria-label="Area" placeholder="Area or neighborhood">
+              <select aria-label="Timeline"><option>Timeline</option><option>Ready now</option><option>60 days</option><option>3+ months</option></select>
+              <select aria-label="Interest"><option>Buy / sell / both</option><option>Buy</option><option>Sell</option><option>Both</option></select>
+              <button class="btn red">Search</button>
+            </div>
+          </div>
+          <div class="hero-visual reveal">
+            <div class="hero-photo main">
+              <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1600&q=80" alt="Urban apartment interior">
+            </div>
+            <div class="hero-photo small">
+              <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80" alt="Bright living room">
+            </div>
+            <div class="stamp">
+              <strong>Districts with momentum.</strong>
+              <p>See what is moving, what is holding value, and where the city still has room to surprise you.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="districts">
+        <div class="section-intro reveal">
+          <p class="eyebrow">Districts</p>
+          <h2>Search by place, not just by price.</h2>
+          <p class="lead">Some clients care about the commute. Others care about schools, skyline, or the block where dinner is always walkable. The browse path adapts to that.</p>
+        </div>
+        <div class="city-grid">
+          <article class="city-card reveal">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80" alt="City skyline with tall buildings">
+            <div class="body"><div class="tag">downtown</div><h3>High-rise living with real energy.</h3><p>For clients who want walkability, views, and easier access to the city rhythm.</p></div>
+          </article>
+          <article class="city-card reveal">
+            <img src="https://images.unsplash.com/photo-1449844908441-8829872d2607?auto=format&fit=crop&w=1600&q=80" alt="Luxury suburban home exterior">
+            <div class="body"><div class="tag">river north</div><h3>Room for more than one season.</h3><p>Quiet blocks, polished homes, and the kind of listing that ages well.</p></div>
+          </article>
+          <article class="city-card reveal">
+            <img src="https://images.unsplash.com/photo-1560185127-6ed189bf02f4?auto=format&fit=crop&w=1600&q=80" alt="Modern home exterior with warm light">
+            <div class="body"><div class="tag">west side</div><h3>Homes that feel current without feeling cold.</h3><p>Good for buyers who want character, structure, and value on the same block.</p></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="stories">
+        <div class="feature-split">
+          <div class="feature-copy reveal">
+            <p class="eyebrow">Stories</p>
+            <h2>The deal is only the beginning.</h2>
+            <p>What clients usually remember is the calm. The right guidance, the tighter shortlist, the faster read on what matters, and the feeling that someone is finally translating the city for them.</p>
+            <div class="hero-actions">
+              <button class="btn red" data-scroll="#contact">Request advice</button>
+              <button class="btn" data-scroll="#sell">See the seller path</button>
+            </div>
+          </div>
+          <div class="testimonial reveal">
+            <article class="testimonial-card">
+              <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1200&q=80" alt="Bright modern interior">
+              <div class="quote"><strong>“We had a sharper shortlist in one conversation.”</strong><p>They looked at the market like a buyer and a seller, which made the decisions easier.</p></div>
+            </article>
+            <article class="testimonial-card">
+              <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80" alt="Elegant residential interior with warm finishes">
+              <div class="quote"><strong>“The timing advice saved us weeks.”</strong><p>We stopped guessing and started moving with a plan that made sense.</p></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="sell">
+        <div class="section-intro reveal">
+          <p class="eyebrow">Seller path</p>
+          <h2>If you are selling, the first move is positioning.</h2>
+          <p class="lead">We map the competition, define the story, and give the listing a stronger opening so the right buyers take it seriously.</p>
+        </div>
+        <div class="steps">
+          <article class="step reveal"><span>01</span><h3>Price with context.</h3><p>Start where the market can understand the value, not where it will ignore the listing.</p></article>
+          <article class="step reveal"><span>02</span><h3>Present the story.</h3><p>Use imagery, copy, and timing to show why the home belongs in the conversation.</p></article>
+          <article class="step reveal"><span>03</span><h3>Guide the response.</h3><p>Handle tours, offers, and follow-up so the momentum stays focused and usable.</p></article>
+        </div>
+      </section>
+
+      <section class="section cta-section" id="contact">
+        <div class="wrap cta-shell">
+          <div class="cta-copy reveal">
+            <p class="eyebrow">Contact</p>
+            <h2>Tell us what part of the city you are trying to solve.</h2>
+            <p class="lead">Buyer, seller, or still deciding. We will help you find the right neighborhood, the right timing, and the right next move.</p>
+            <div class="hero-actions">
+              <button class="btn red">Book a valuation</button>
+              <button class="btn" data-scroll="#districts">View districts</button>
+            </div>
+          </div>
+          <div class="cta-image reveal">
+            <img src="https://images.unsplash.com/photo-1560184897-ae75f418493e?auto=format&fit=crop&w=1600&q=80" alt="Luxury residential building exterior">
+            <div class="form">
+              <div class="form-grid">
+                <input aria-label="Name" placeholder="Name">
+                <input aria-label="Email" placeholder="Email">
+                <select aria-label="Primary goal"><option>Primary goal</option><option>Buy</option><option>Sell</option><option>Relocate</option></select>
+                <select aria-label="Budget"><option>Budget range</option><option>$500K - $1M</option><option>$1M - $3M</option><option>$3M+</option></select>
+                <button class="btn red wide" type="button">Start the conversation</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="wrap footer-grid">
+        <span>Harbor House Realty. City expertise, quieter guidance, and a better handle on timing.</span>
+        <span>Districts / Stories / Seller path / Contact</span>
+      </div>
+    </footer>
+  </div>
+  <script>
+    (() => {
+      const root = document.querySelector('.harbor-house');
+      if (!root) return;
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const revealItems = root.querySelectorAll('.reveal');
+      if (reduceMotion) {
+        revealItems.forEach((item) => item.classList.add('is-visible'));
+      } else {
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              io.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.16, rootMargin: '0px 0px -8% 0px' });
+        revealItems.forEach((item) => io.observe(item));
+      }
+
+      root.querySelectorAll('[data-scroll]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const target = root.querySelector(btn.getAttribute('data-scroll'));
+          target?.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+        });
+      });
+
+      const heroVisual = root.querySelector('.hero-visual');
+      if (heroVisual && !reduceMotion) {
+        heroVisual.addEventListener('pointermove', (event) => {
+          const rect = heroVisual.getBoundingClientRect();
+          const x = (event.clientX - rect.left) / rect.width - .5;
+          const y = (event.clientY - rect.top) / rect.height - .5;
+          heroVisual.style.transform = `translate3d(${x * 12}px, ${y * 10}px, 0)`;
+        });
+        heroVisual.addEventListener('pointerleave', () => {
+          heroVisual.style.transform = 'translate3d(0,0,0)';
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
