@@ -176,6 +176,35 @@
       overflow: hidden;
     }
     .atlas-commercial .hero-photo img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.82) contrast(1.03); }
+    .atlas-commercial .hero-photo.image-fallback,
+    .atlas-commercial .asset.image-fallback,
+    .atlas-commercial .panel.image-fallback,
+    .atlas-commercial .cta-card.image-fallback {
+      background:
+        radial-gradient(circle at 80% 24%, rgba(102,215,255,.2), transparent 16rem),
+        linear-gradient(145deg, rgba(18,25,33,.98), rgba(9,13,18,.98));
+    }
+    .atlas-commercial .hero-photo.image-fallback::before,
+    .atlas-commercial .asset.image-fallback::before,
+    .atlas-commercial .panel.image-fallback::before,
+    .atlas-commercial .cta-card.image-fallback::before {
+      content: "";
+      display: block;
+      min-height: 220px;
+      background:
+        repeating-linear-gradient(90deg, transparent 0 36px, rgba(102,215,255,.18) 36px 37px),
+        repeating-linear-gradient(0deg, transparent 0 36px, rgba(102,215,255,.12) 36px 37px),
+        linear-gradient(135deg, rgba(102,215,255,.12), rgba(182,255,94,.07));
+    }
+    .atlas-commercial .hero-photo.image-fallback::after {
+      background:
+        linear-gradient(130deg, rgba(9,13,18,.3), rgba(9,13,18,.78)),
+        repeating-linear-gradient(90deg, transparent 0 42px, rgba(102,215,255,.3) 42px 44px);
+    }
+    .atlas-commercial .hero-photo.image-fallback img,
+    .atlas-commercial .asset.image-fallback img,
+    .atlas-commercial .panel.image-fallback img,
+    .atlas-commercial .cta-card.image-fallback img { display: none; }
     .atlas-commercial .hero-photo::after {
       content: "";
       position: absolute;
@@ -582,6 +611,14 @@
       const root = document.querySelector('.atlas-commercial');
       if (!root) return;
       const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const applyImageFallback = (img) => {
+        const holder = img.closest('.hero-photo, .asset, .panel, .cta-card');
+        if (holder) holder.classList.add('image-fallback');
+      };
+      root.querySelectorAll('img').forEach((img) => {
+        img.addEventListener('error', () => applyImageFallback(img), { once: true });
+        if (img.complete && img.naturalWidth === 0) applyImageFallback(img);
+      });
       const revealItems = root.querySelectorAll('.reveal');
       if (reduceMotion) {
         revealItems.forEach((item) => item.classList.add('is-visible'));

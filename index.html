@@ -654,6 +654,36 @@
       transition: transform 400ms var(--ease), filter 300ms var(--ease);
     }
 
+    .preview-fallback {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      text-align: center;
+      color: var(--text);
+      background:
+        linear-gradient(135deg, oklch(18% 0.03 252), oklch(10% 0.018 252)),
+        repeating-linear-gradient(90deg, transparent 0 32px, oklch(100% 0 0 / .05) 32px 33px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 220ms var(--ease);
+    }
+
+    .preview.missing .preview-fallback {
+      opacity: 1;
+    }
+
+    .preview-fallback span {
+      display: inline-block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: .84rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+    }
+
     .card:hover .preview img {
       transform: scale(1.035);
       filter: saturate(1.08) contrast(1.05);
@@ -1694,8 +1724,6 @@
         isArchived: false,
         createdAt: "2026-05-13T23:05:00.000Z"
       },
-    ];
-
       {
         id: "northline-estates",
         name: "Northline Estates",
@@ -1958,7 +1986,8 @@
       gridEl.innerHTML = results.map(site => `
         <article class="card" tabindex="0" role="button" aria-label="Open live preview for ${site.name}" data-id="${site.id}">
           <div class="preview">
-            <img src="${site.screenshot}" alt="Preview screenshot for ${site.name}" loading="lazy" />
+          <img src="${site.screenshot}" alt="Preview screenshot for ${site.name}" loading="lazy" onerror="this.closest('.preview').classList.add('missing'); this.remove();" />
+          <div class="preview-fallback" aria-hidden="true">${site.name}<br><span>${site.niche}</span></div>
             <div class="preview-top">
               <span class="badge">${site.type}</span>
               <span class="badge version">${site.version || "V0"}</span>

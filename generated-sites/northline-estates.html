@@ -177,6 +177,31 @@
       transform: rotate(-1.5deg);
     }
     .northline-realestate .visual-main img { width: 100%; height: 100%; object-fit: cover; }
+    .northline-realestate .visual-main.image-fallback,
+    .northline-realestate .property.image-fallback,
+    .northline-realestate .story-card.image-fallback,
+    .northline-realestate .cta-card.image-fallback {
+      background:
+        radial-gradient(circle at 72% 20%, rgba(163,122,58,.2), transparent 16rem),
+        linear-gradient(135deg, rgba(247,241,231,.96), rgba(211,196,171,.92));
+    }
+    .northline-realestate .visual-main.image-fallback::before,
+    .northline-realestate .property.image-fallback::before,
+    .northline-realestate .story-card.image-fallback::before,
+    .northline-realestate .cta-card.image-fallback::before {
+      content: "";
+      display: block;
+      min-height: 240px;
+      background:
+        linear-gradient(115deg, rgba(23,20,18,.12), transparent 34%),
+        repeating-linear-gradient(90deg, rgba(23,20,18,.12) 0 1px, transparent 1px 42px),
+        linear-gradient(160deg, rgba(107,114,98,.64), rgba(163,122,58,.52));
+      clip-path: polygon(0 24%, 100% 6%, 100% 100%, 0 86%);
+    }
+    .northline-realestate .visual-main.image-fallback img,
+    .northline-realestate .property.image-fallback img,
+    .northline-realestate .story-card.image-fallback img,
+    .northline-realestate .cta-card.image-fallback img { display: none; }
     .northline-realestate .floating-card {
       position: absolute;
       right: 0;
@@ -613,6 +638,14 @@
       const root = document.querySelector('.northline-realestate');
       if (!root) return;
       const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const applyImageFallback = (img) => {
+        const holder = img.closest('.visual-main, .property, .story-card, .cta-card');
+        if (holder) holder.classList.add('image-fallback');
+      };
+      root.querySelectorAll('img').forEach((img) => {
+        img.addEventListener('error', () => applyImageFallback(img), { once: true });
+        if (img.complete && img.naturalWidth === 0) applyImageFallback(img);
+      });
       const revealItems = root.querySelectorAll('.reveal');
       if (reduceMotion) {
         revealItems.forEach((item) => item.classList.add('is-visible'));
