@@ -1696,8 +1696,79 @@
       },
     ];
 
+      {
+        id: "northline-estates",
+        name: "Northline Estates",
+        niche: "Real Estate",
+        type: "SITE",
+        version: "LIVE",
+        url: "generated-sites/northline-estates.html",
+        localPath: "generated-sites/northline-estates.html",
+        screenshot: "generated-sites/preview-northline-estates.png",
+        referenceUrl: "https://www.sothebysrealty.com/",
+        sourceInspiration: "Sotheby's International Realty-style luxury residential homepage mirror with an editorial hero, curated collection, advisory split, process path, and consultation form.",
+        positioningAngle: "Luxury residential guidance for buyers and sellers who want curated homes, clearer comparisons, and calm advisory support.",
+        headline: "Homes chosen for how they live, not just how they list.",
+        primaryCTA: "Request a private consult",
+        cta: "Request a private consult",
+        sectionBreakdown: ["Outcome hero", "Collection tabs", "Featured homes", "Advisory split", "Process", "Private consult"],
+        designNotes: ["Ivory editorial palette", "Fraunces display typography", "Curated image stack and property cards", "GHL-safe scoped wrapper"],
+        conversionNotes: ["Search and shortlist flow", "Advisory bridge before contact", "Low-friction consult form", "No generic brochure copy"],
+        tags: ["Generated", "Real Estate", "Luxury", "GHL", "Final"],
+        isFavorite: true,
+        isArchived: false,
+        createdAt: "2026-05-19T10:00:00.000Z"
+      },
+      {
+        id: "harbor-house-realty",
+        name: "Harbor House Realty",
+        niche: "Real Estate",
+        type: "SITE",
+        version: "LIVE",
+        url: "generated-sites/harbor-house-realty.html",
+        localPath: "generated-sites/harbor-house-realty.html",
+        screenshot: "generated-sites/preview-harbor-house-realty.png",
+        referenceUrl: "https://www.serhant.com/",
+        sourceInspiration: "SERHANT-style urban brokerage mirror with dark editorial contrast, district grid, story-led proof, seller path, and booking form.",
+        positioningAngle: "Urban brokerage for clients buying or selling in competitive markets who want sharper positioning and a faster read on options.",
+        headline: "City property, with a better read on timing.",
+        primaryCTA: "Book a valuation",
+        cta: "Book a valuation",
+        sectionBreakdown: ["Outcome hero", "Districts", "Story proof", "Seller path", "Process", "Valuation form"],
+        designNotes: ["Deep navy and oxblood palette", "Cormorant Garamond headlines", "District-led navigation", "GHL-safe scoped wrapper"],
+        conversionNotes: ["Valuation CTA repeated", "Market context before the form", "Proof and strategy sections", "No label clutter"],
+        tags: ["Generated", "Real Estate", "Brokerage", "GHL", "Final"],
+        isFavorite: true,
+        isArchived: false,
+        createdAt: "2026-05-19T10:05:00.000Z"
+      },
+      {
+        id: "atlas-commercial-realty",
+        name: "Atlas Commercial Realty",
+        niche: "Real Estate",
+        type: "SITE",
+        version: "LIVE",
+        url: "generated-sites/atlas-commercial-realty.html",
+        localPath: "generated-sites/atlas-commercial-realty.html",
+        screenshot: "generated-sites/preview-atlas-commercial-realty.png",
+        referenceUrl: "https://www.compass.com/",
+        sourceInspiration: "Compass-style commercial real estate mirror with data-led hero, asset-class cards, market intelligence, process steps, and request-brief form.",
+        positioningAngle: "Commercial property guidance for teams evaluating office, retail, or industrial space with sharper market context and fewer false starts.",
+        headline: "Commercial space, judged by fit not noise.",
+        primaryCTA: "Request a market brief",
+        cta: "Request a market brief",
+        sectionBreakdown: ["Data hero", "Asset classes", "Market snapshot", "Process", "Request brief form"],
+        designNotes: ["Charcoal and electric-cyan palette", "Manrope with Unbounded display accents", "Data-forward layout and skyline visual", "GHL-safe scoped wrapper"],
+        conversionNotes: ["Brief CTA above and below fold", "Decision-support framing", "Clear asset-class segmentation", "No generic stock-brokerage filler"],
+        tags: ["Generated", "Real Estate", "Commercial", "GHL", "Final"],
+        isFavorite: true,
+        isArchived: false,
+        createdAt: "2026-05-19T10:10:00.000Z"
+      },
+    ];
+
     const seedSites = finalSiteRecords;
-    const STORAGE_RESET_VERSION = "final-sites-library-v22";
+    const STORAGE_RESET_VERSION = "final-sites-library-v23";
 
     let sites = loadSites();
     let currentNiche = "All";
@@ -1917,7 +1988,10 @@
       const site = sites.find(item => item.id === siteId);
       if (!site) return;
       activeSiteId = site.id;
-      document.getElementById("modalImage").src = site.screenshot;
+      const modalThumbnail = site.screenshot && /^(https?:|data:)/i.test(site.screenshot)
+        ? site.screenshot
+        : makePreview(site.niche, site.name, site.type);
+      document.getElementById("modalImage").src = modalThumbnail;
       document.getElementById("modalImage").alt = `Large preview screenshot for ${site.name}`;
       document.getElementById("modalBadges").innerHTML = `
         <span class="badge">${site.type}</span>
