@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Manrope:wght@500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
+/* page reset for standalone preview */ body { margin: 0; }
     .fever-fitness {
       --ink: #11100d;
       --smoke: #191711;
@@ -127,10 +128,10 @@
       .fever-fitness .links { display: none; }
       .fever-fitness .nav-inner { grid-template-columns: 1fr auto; }
       .fever-fitness .nav-actions .btn:not(.primary) { display: none; }
-      .fever-fitness .hero-grid, .fever-fitness .section-head, .fever-fitness .class-stage, .fever-fitness .planner, .fever-fitness .location-wall, .fever-fitness .final-grid { grid-template-columns: 1fr; }
+      .fever-fitness .hero-grid, .fever-fitness .section-head, .fever-fitness .class-stage, .fever-fitness .planner, .fever-fitness .location-wall, .fever-fitness .final-grid { grid-template-columns: minmax(0, 1fr); }
       .fever-fitness .hero { min-height: auto; }
       .fever-fitness .hero-grid { padding: 62px 0; }
-      .fever-fitness h1 { font-size: clamp(5rem, 22vw, 7.4rem); }
+      .fever-fitness h1 { font-size: clamp(2.9rem, 14.5vw, 7.4rem); }
       .fever-fitness .stats, .fever-fitness .upgrade-grid, .fever-fitness .class-grid { grid-template-columns: 1fr; }
       .fever-fitness .program-meta { grid-template-columns: 1fr; }
       .fever-fitness .program-panel, .fever-fitness .upgrade, .fever-fitness .planner-board, .fever-fitness .club-card { min-height: auto; }

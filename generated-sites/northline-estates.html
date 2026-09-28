@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,650;9..144,800&display=swap" rel="stylesheet">
   <style>
+/* page reset for standalone preview */ body { margin: 0; }
     .northline-realestate {
       --paper: #f7f1e7;
       --bone: #ede5d7;
@@ -443,7 +444,15 @@
       .northline-realestate *, .northline-realestate *::before, .northline-realestate *::after { animation: none !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
       .northline-realestate .reveal { opacity: 1; transform: none; }
     }
-  </style>
+/* responsive fixes (small phones) */
+@media (max-width: 420px) {
+  .northline-realestate .nav-inner .btn { font-size: 0; padding-inline: 16px; }
+  .northline-realestate .nav-inner .btn::after { content: "Book a consult"; font-size: 13px; }
+  .northline-realestate h2 { font-size: clamp(2.2rem, 11.5vw, 4.4rem); }
+  .northline-realestate .btn { white-space: normal; text-align: center; }
+}
+/* end responsive fixes */
+</style>
 </head>
 <body>
   <div class="northline-realestate">

@@ -1,4 +1,6 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
+/* page reset for standalone preview */ body { margin: 0; }
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800;900&family=Fraunces:opsz,wght@9..144,600;9..144,750&display=swap");
 
 .keystone-move {
@@ -332,7 +334,7 @@
   color: var(--white);
   background:
     linear-gradient(180deg, rgba(16,23,32,.05), rgba(16,23,32,.86)),
-    url("https://images.unsplash.com/photo-1590807774630-9c3b69d8263e?auto=format&fit=crop&w=900&q=84") center/cover;
+    url("https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=900&q=84") center/cover;
 }
 
 .keystone-move .service h3 {
@@ -486,12 +488,14 @@
 
 .keystone-move .final-form {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 12px;
 }
 
 .keystone-move .final-form input,
 .keystone-move .final-form select {
+  width: 100%;
+  min-width: 0;
   min-height: 58px;
   border: 1px solid rgba(255,255,255,.22);
   border-radius: 16px;
@@ -537,7 +541,7 @@
   .keystone-move .nav-links { display: none; }
   .keystone-move .hero,
   .keystone-move .section-head,
-  .keystone-move .final-grid { grid-template-columns: 1fr; }
+  .keystone-move .final-grid { grid-template-columns: minmax(0, 1fr); }
   .keystone-move .hero { min-height: auto; }
   .keystone-move .hero-copy { padding: 38px 0 18px; }
   .keystone-move .hero-visual { min-height: 760px; }
@@ -632,7 +636,18 @@
   .keystone-move :is(article[class*="card"], article[class*="service"], .service-card, .price-card, .case-card, .treatment, .doctor-profile, .doctor, .panel, .visual, .story-card, .move-item, .move-big, .bento-card):hover,
   .keystone-move :is(.btn, button, a[class*="btn"], .pill, .nav-cta, .cta-button):hover { transform: none !important; }
 }
-
+/* responsive fixes (small phones) */
+@media (max-width: 700px) {
+  .keystone-move .hero-visual { min-height: 0; display: flex; flex-direction: column; justify-content: flex-end; gap: 12px; padding: 240px 16px 16px; }
+  .keystone-move .quote-card,
+  .keystone-move .hero-stats { position: relative; left: auto; right: auto; bottom: auto; width: auto; }
+  .keystone-move .hero-stats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (min-width: 701px) {
+  /* stats sit across the top of the photo so the quote card never covers them */
+  .keystone-move .hero-stats { top: 28px; bottom: auto; right: 28px; width: auto; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+/* end responsive fixes */
 </style>
 
 <div class="keystone-move">

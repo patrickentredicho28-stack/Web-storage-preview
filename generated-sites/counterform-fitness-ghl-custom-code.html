@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,650;9..144,800&display=swap" rel="stylesheet">
   <style>
+/* page reset for standalone preview */ body { margin: 0; }
     .counterform-fitness {
       --bone: #f1ece2;
       --paper: #fbf7ee;
@@ -636,6 +637,8 @@
       .counterform-fitness .principles { grid-template-columns: 1fr; }
       .counterform-fitness .principle { min-height: auto; }
       .counterform-fitness .form-grid { grid-template-columns: 1fr; }
+      .counterform-fitness .join-panel { grid-template-columns: minmax(0, 1fr); }
+      .counterform-fitness .btn.wide { white-space: normal; text-align: center; line-height: 1.25; padding-block: 12px; }
       .counterform-fitness .footer-grid { grid-template-columns: 1fr; }
       .counterform-fitness .image-caption { position: static; border-radius: 0; flex-direction: column; }
       .counterform-fitness .image-card { min-height: 360px; display: flex; flex-direction: column; }

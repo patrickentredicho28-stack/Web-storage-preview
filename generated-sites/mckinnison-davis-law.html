@@ -1,4 +1,6 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
+/* page reset for standalone preview */ body { margin: 0; }
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800;900&display=swap");
 
 .mck-page {
@@ -944,7 +946,10 @@
   .mck-page :is(article[class*="card"], article[class*="service"], .service-card, .price-card, .case-card, .treatment, .doctor-profile, .doctor, .panel, .visual, .story-card, .move-item, .move-big, .bento-card):hover,
   .mck-page :is(.btn, button, a[class*="btn"], .pill, .nav-cta, .cta-button):hover { transform: none !important; }
 }
-
+/* responsive fixes (small phones) */
+/* contact sits on dark green: its centered title needs the light text color */
+.mck-page .contact .center-title h2 { color: var(--cream); }
+/* end responsive fixes */
 </style>
 
 <div class="mck-page">

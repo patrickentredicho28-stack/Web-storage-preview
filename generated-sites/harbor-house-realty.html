@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700;800&display=swap" rel="stylesheet">
   <style>
+/* page reset for standalone preview */ body { margin: 0; }
     .harbor-house {
       --navy: #0f1722;
       --navy2: #182434;
@@ -396,7 +397,17 @@
       .harbor-house *, .harbor-house *::before, .harbor-house *::after { animation: none !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
       .harbor-house .reveal { opacity: 1; transform: none; }
     }
-  </style>
+/* responsive fixes (small phones) */
+@media (max-width: 620px) {
+  .harbor-house .hero-visual { min-height: 0; display: block; }
+  .harbor-house .hero-photo.main { min-height: 0; height: 340px; }
+  .harbor-house .stamp { position: relative; left: auto; bottom: auto; width: auto; margin-top: 16px; z-index: 2; }
+}
+/* main photo fills its frame; the stamp card sits on top of it */
+.harbor-house .hero-photo.main img { position: absolute; inset: 0; }
+.harbor-house .stamp { z-index: 2; }
+/* end responsive fixes */
+</style>
 </head>
 <body>
   <div class="harbor-house">

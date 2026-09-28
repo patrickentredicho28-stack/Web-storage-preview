@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
   <style>
+/* page reset for standalone preview */ body { margin: 0; }
     .solace-medspa {
       --cream: #fbf6ec;
       --paper: #fffdf8;
@@ -155,7 +156,16 @@
       .solace-medspa *, .solace-medspa *::before, .solace-medspa *::after { animation: none !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
       .solace-medspa .reveal { opacity: 1; transform: none; }
     }
-  </style>
+/* responsive fixes (small phones) */
+@media (max-width: 420px) {
+  .solace-medspa .consult { grid-template-columns: minmax(0, 1fr); }
+  .solace-medspa h1 { font-size: clamp(2.8rem, 15vw, 4rem); }
+  .solace-medspa .hero-grid { grid-template-columns: minmax(0, 1fr); }
+  .solace-medspa h2 { font-size: clamp(2.3rem, 12vw, 3rem); }
+  .solace-medspa .btn { white-space: normal; text-align: center; }
+}
+/* end responsive fixes */
+</style>
 </head>
 <body>
   <div class="solace-medspa">

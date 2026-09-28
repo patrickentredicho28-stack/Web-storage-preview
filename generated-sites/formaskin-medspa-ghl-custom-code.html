@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
+/* page reset for standalone preview */ body { margin: 0; }
 
 .forma-medspa {
   
@@ -155,8 +156,16 @@
   .forma-medspa .decision-panel { min-height: auto; gap: 28px; }
   .forma-medspa .footer { flex-direction: column; }
 }
-
-  </style>
+/* responsive fixes (small phones) */
+@media (max-width: 420px) {
+  .forma-medspa .nav .btn { padding: 12px 14px; letter-spacing: .04em; font-size: 12px; }
+  .forma-medspa .btn { white-space: normal; text-align: center; }
+}
+/* offer card lives in a ~300px cell: size its headline to the cell, and let the rows grow instead of clipping */
+.forma-medspa .offer strong { font-size: clamp(2rem, 2.7vw, 3.4rem); }
+.forma-medspa .photo-stack { grid-template-rows: minmax(255px, auto) minmax(255px, auto); }
+/* end responsive fixes */
+</style>
 </head>
 <body>
   <div class="forma-medspa">

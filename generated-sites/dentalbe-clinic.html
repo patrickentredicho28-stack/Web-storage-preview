@@ -1,4 +1,6 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
+/* page reset for standalone preview */ body { margin: 0; }
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800;900&display=swap");
 
 .dentalbe-page {
@@ -550,7 +552,12 @@
   .dentalbe-page :is(article[class*="card"], article[class*="service"], .service-card, .price-card, .case-card, .treatment, .doctor-profile, .doctor, .panel, .visual, .story-card, .move-item, .move-big, .bento-card):hover,
   .dentalbe-page :is(.btn, button, a[class*="btn"], .pill, .nav-cta, .cta-button):hover { transform: none !important; }
 }
-
+/* responsive fixes (small phones) */
+@media (max-width: 640px) {
+  .dentalbe-page .logos { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 16px; text-align: center; }
+  .dentalbe-page .logos span:last-child { grid-column: 1 / -1; }
+}
+/* end responsive fixes */
 </style>
 
 <div class="dentalbe-page">

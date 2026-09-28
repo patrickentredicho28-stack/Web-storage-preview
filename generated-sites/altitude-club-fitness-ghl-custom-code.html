@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;900&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <style>
+/* page reset for standalone preview */ body { margin: 0; }
     .altitude-fitness {
       --black: #10100f;
       --charcoal: #191918;
@@ -114,7 +115,14 @@
       .altitude-fitness *, .altitude-fitness *::before, .altitude-fitness *::after { animation: none !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
       .altitude-fitness .reveal { opacity: 1; transform: none; }
     }
-  </style>
+/* responsive fixes (small phones) */
+@media (max-width: 420px) {
+  .altitude-fitness .final-grid { grid-template-columns: minmax(0, 1fr); }
+  .altitude-fitness h2 { font-size: clamp(2.3rem, 12vw, 3rem); }
+  .altitude-fitness .btn { white-space: normal; text-align: center; }
+}
+/* end responsive fixes */
+</style>
 </head>
 <body>
   <div class="altitude-fitness">

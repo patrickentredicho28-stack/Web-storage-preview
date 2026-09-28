@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Unbounded:wght@500;600;700&display=swap" rel="stylesheet">
   <style>
+/* page reset for standalone preview */ body { margin: 0; }
     .atlas-commercial {
       --coal: #0c1016;
       --panel: #121921;
@@ -421,7 +422,19 @@
       .atlas-commercial *, .atlas-commercial *::before, .atlas-commercial *::after { animation: none !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
       .atlas-commercial .reveal { opacity: 1; transform: none; }
     }
-  </style>
+/* responsive fixes (small phones) */
+@media (max-width: 420px) {
+  .atlas-commercial .nav-inner .btn { font-size: 0; padding-inline: 16px; }
+  .atlas-commercial .nav-inner .btn::after { content: "Get a brief"; font-size: 13px; }
+  .atlas-commercial h2 { font-size: clamp(2.1rem, 11vw, 4rem); }
+  .atlas-commercial .split { grid-template-columns: minmax(0, 1fr); }
+  .atlas-commercial .hero-actions .btn { white-space: normal; text-align: center; }
+}
+@media (max-width: 560px) {
+  .atlas-commercial .metric-strip { grid-template-columns: minmax(0, 1fr); }
+}
+/* end responsive fixes */
+</style>
 </head>
 <body>
   <div class="atlas-commercial">
@@ -493,7 +506,7 @@
             <div class="body"><div class="label">office</div><h3>Space that supports the team, not just the lease.</h3><p>See build-outs, proximity, and what a better office says about your business.</p></div>
           </article>
           <article class="asset reveal">
-            <img src="https://images.unsplash.com/photo-1514511547116-2cf7f7b7c7b1?auto=format&fit=crop&w=1600&q=80" alt="Retail storefront with glass front">
+            <img src="https://images.unsplash.com/photo-1528698827591-e19ccd7bc23d?auto=format&fit=crop&w=1600&q=80" alt="Retail storefront with glass front">
             <div class="body"><div class="label">retail</div><h3>Frontage that gets seen from the sidewalk.</h3><p>Shortlist the blocks where visibility, traffic, and fit line up.</p></div>
           </article>
           <article class="asset reveal">
