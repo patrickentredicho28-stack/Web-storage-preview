@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore a fictional independent salon with tailored cuts, dimensional color, and a first-visit planner.">
+  <title>Silkline Studio | Cut &amp; Color</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Mulish:wght@400;600;700;800&display=swap">
+  <link rel="stylesheet" href="assets/service-demos.css">
+  <script src="assets/service-demos.js" defer></script>
+  <style>
+    body { --paper: oklch(96% .013 20); --ink: oklch(23% .042 15); --rule: oklch(80% .033 16); --panel: oklch(89% .05 17); --panel-ink: var(--ink); --cta: oklch(39% .125 18); --cta-text: var(--paper); --display: Gloock, Georgia; --body: Mulish; }
+    .top { border-bottom: 1px solid var(--rule); }
+    .hero { display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(2rem, 6vw, 6rem); align-items: center; padding-block: 1.4rem 2.5rem; }
+    .hero h1 { margin-block: .7rem 1.2rem; font-size: clamp(2.9rem, 6.9vw, 6.6rem); font-weight: 400; letter-spacing: -.06em; }
+    .hero .action { margin-top: 1.5rem; }
+    .hero figure { background: var(--panel); }
+    .hero img { aspect-ratio: 1.08; object-position: center 46%; }
+    figcaption { padding: .55rem .7rem; font-size: .85rem; }
+    .menu { display: grid; grid-template-columns: 1fr 1.7fr; gap: 2rem; border-top: 1px solid var(--rule); }
+    .menu h2 { font-weight: 400; }
+    .menu .intro { margin-top: .7rem; }
+    .menu article { padding: 1rem 0; border-top: 1px solid var(--rule); display: grid; grid-template-columns: minmax(0,1fr) auto; gap: .8rem; align-items: center; }
+    .menu article h3 { font-size: 1.4rem; font-weight: 400; margin-bottom: .35rem; }
+    .menu article a { padding: .65rem .05rem; font-weight: 800; }
+    .visit { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    @media (max-width: 767px) { .hero, .menu, .visit { grid-template-columns: 1fr; } .hero { padding-top: 2rem; } .hero img { aspect-ratio: 1.4; } }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="wrap top"><a class="wordmark" href="#main">Silkline Studio</a><nav aria-label="Main"><a href="#menu">Service menu</a><a href="#visit">First visit</a></nav></header>
+  <main id="main">
+    <section class="wrap hero">
+      <div><p class="eyebrow">Independent cut &amp; color studio</p><h1>Good hair on a regular Tuesday.</h1><p>Shape, color, and styling built around how you actually wear your hair. Start with the service that feels closest to what you want.</p><a class="action" href="#menu">Explore the service menu <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+      <figure><img src="assets/silkline.webp" alt="Salon chair facing a mirror at a styling station" width="1000" height="925" fetchpriority="high"><figcaption>Studio mood reference · Photography by <a href="https://unsplash.com/photos/HIeq4qMEBfM">Kawê Rodrigues</a></figcaption></figure>
+    </section>
+    <section class="wrap section menu" id="menu">
+      <div><h2>In the chair</h2><p class="intro">Each service starts with a conversation about your routine and how you want the result to grow out.</p></div>
+      <div>
+        <article><div><h3>Cut &amp; shape</h3><p>Consultation, wash, cut, and styling notes. Allow 60 minutes.</p></div><a href="#visit" data-service="cut" aria-label="Choose Cut and shape">Choose <span aria-hidden="true">↗</span></a></article>
+        <article><div><h3>Dimensional color</h3><p>Placement, tone, and an upkeep plan. Allow 2–3 hours.</p></div><a href="#visit" data-service="color" aria-label="Choose Dimensional color">Choose <span aria-hidden="true">↗</span></a></article>
+        <article><div><h3>Color consultation</h3><p>For a big change, previous color, or an idea you want to talk through.</p></div><a href="#visit" data-service="consult" aria-label="Choose Color consultation">Choose <span aria-hidden="true">↗</span></a></article>
+      </div>
+    </section>
+    <section class="panel section" id="visit"><div class="wrap visit">
+      <div class="flow"><h2>Plan your first visit.</h2><p>Choose a service and the part of the day that suits you. A real salon would confirm timing and pricing before booking.</p></div>
+      <form data-demo-form="Selected service:"><p class="note">Fictional studio. Try the flow without sharing personal details.</p><label for="service">Service<select id="service" required><option value="">Choose a service</option><option value="cut">Cut &amp; shape</option><option value="color">Dimensional color</option><option value="consult">Color consultation</option></select></label><label>Preferred time<select required><option value="">Choose a time window</option><option>Morning</option><option>Afternoon</option><option>Either works</option></select></label><button class="action">Preview visit request</button><p role="status"></p></form>
+    </div></section>
+  </main>
+  <footer class="wrap footer"><p>Silkline Studio · Fictional salon concept</p><a href="../#library">Back to Web Storage</a></footer>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A fictional residential roofing site with an inspection checklist, repair guidance, and an interactive assessment preview.">
+  <title>Ridgefield Roofing | Residential Roof Inspections</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Chivo:wght@400;700&display=swap">
+  <link rel="stylesheet" href="assets/service-demos.css">
+  <script src="assets/service-demos.js" defer></script>
+  <style>
+    body { --paper: oklch(95% .015 87); --ink: oklch(23% .025 81); --rule: oklch(72% .03 86); --panel: oklch(26% .025 78); --panel-ink: var(--paper); --cta: oklch(83% .16 78); --cta-text: var(--ink); --display: "Barlow Condensed"; --body: Chivo; }
+    .top { border-bottom: 1px solid var(--rule); }
+    .wordmark { text-transform: uppercase; }
+    .mast { padding-block: 1.5rem 2rem; }
+    .hero-head { display: grid; grid-template-columns: 1.4fr 1fr; align-items: end; gap: 1rem 2rem; margin-bottom: 1.25rem; }
+    .hero-head h1 { font-size: clamp(3.4rem, 8.5vw, 8.8rem); text-transform: uppercase; line-height: .88; margin-top: .45rem; }
+    .hero-head .action { margin-top: 1rem; }
+    .survey { display: grid; grid-template-columns: 1.7fr 1fr; }
+    .survey figure { min-width: 0; position: relative; }
+    .survey img { aspect-ratio: 1.95; object-position: center 49%; }
+    .survey figcaption { position: absolute; bottom: 0; left: 0; background: var(--panel); color: var(--panel-ink); padding: .4rem .65rem; }
+    .checklist { padding: clamp(1.1rem, 4vw, 3rem); }
+    .checklist h2 { font-size: clamp(1.9rem, 4.2vw, 3.1rem); margin-bottom: .65rem; }
+    .checklist ul { list-style: none; margin: 0; padding: 0; }
+    .checklist li { border-top: 1px solid var(--rule); padding: .53rem 0; }
+    .scope { display: grid; grid-template-columns: 1fr 1.1fr; gap: 1.5rem 3rem; }
+    .scope details { border-top: 1px solid var(--rule); }
+    .request { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    @media (max-width: 767px) { .hero-head, .survey, .scope, .request { grid-template-columns: 1fr; } .survey img { aspect-ratio: 1.65; } }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="wrap top"><a class="wordmark" href="#main">Ridgefield Roofing</a><nav aria-label="Main"><a href="#scope">Repair or replace</a><a href="#assessment">Assessment</a></nav></header>
+  <main id="main">
+    <section class="wrap mast">
+      <div class="hero-head"><div><p class="eyebrow">Residential roofing</p><h1>Know what your roof needs.</h1></div><div><p>From a stain on the ceiling to shingles that have reached the end of their life, start with an inspection and a written scope you can review.</p><a class="action" href="#assessment">Start an assessment <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></div>
+      <div class="survey"><figure><img src="assets/ridgefield.webp" alt="Sunlight falling across a residential gable roof" width="1440" height="740" fetchpriority="high"><figcaption class="note">Reference photo by <a href="https://unsplash.com/photos/mzkx33pU2go">Valentin</a></figcaption></figure><div class="panel checklist"><h2>What we look at</h2><ul><li>01 · Roof covering and ridges</li><li>02 · Flashing around penetrations</li><li>03 · Gutters and drainage paths</li><li>04 · Visible signs of moisture</li></ul></div></div>
+    </section>
+    <section class="wrap section scope" id="scope"><div class="flow"><h2>From findings to options</h2><p>A written scope gives you a way to compare the work, materials, and exclusions before agreeing to a job.</p></div><div><details open><summary>Repair an isolated issue</summary><p>A localized problem may call for targeted work if the surrounding roof is in serviceable condition.</p></details><details><summary>Compare replacement scopes</summary><p>When wear is widespread, compare tear-off, ventilation, flashing, material choices, and cleanup in the same scope.</p></details><details><summary>Document storm concerns</summary><p>Record the date and describe what you can see safely from the ground. An inspection can document the visible condition.</p></details></div></section>
+    <section class="panel section" id="assessment"><div class="wrap request"><div class="flow"><h2>Tell us what you noticed.</h2><p>In a real assessment, the description would help a crew prepare and confirm the next step with you.</p></div><form data-demo-form="Roof concern:"><p class="note">Fictional contractor. This assessment is a demo.</p><label>Primary concern<select required><option value="">Select a concern</option><option>Water stain or leak</option><option>Missing or damaged shingles</option><option>Storm damage concern</option><option>Roof nearing replacement</option></select></label><label>When did you notice it?<select required><option value="">Select a timeframe</option><option>In the past week</option><option>In the past month</option><option>Longer ago or unsure</option></select></label><button class="action">Preview assessment request</button><p role="status"></p></form></div></section>
+  </main>
+  <footer class="wrap footer"><p>Ridgefield Roofing · Fictional contractor concept</p><a href="../#library">Back to Web Storage</a></footer>
+</body>
+</html>

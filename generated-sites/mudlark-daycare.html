@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A fictional dog daycare with a sample daily routine and a first-visit planner.">
+  <title>Mudlark Day Club | Dog Daycare</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Asul:wght@400;700&display=swap">
+  <link rel="stylesheet" href="assets/service-demos.css">
+  <script src="assets/service-demos.js" defer></script>
+  <style>
+    body { --paper: oklch(96% .027 105); --ink: oklch(25% .08 155); --rule: oklch(69% .07 145); --panel: oklch(34% .11 153); --panel-ink: var(--paper); --cta: var(--paper); --cta-text: var(--ink); --display: "Bricolage Grotesque"; --body: Asul; --round: 1.7rem; }
+    .scene { background: var(--panel); color: var(--paper); }
+    .scene .top { border-bottom: 1px solid var(--rule); }
+    .scene .wordmark { font-weight: 800; }
+    .hero { padding-top: 1.4rem; }
+    .hero h1 { font-size: clamp(2.9rem, 8.1vw, 8.25rem); letter-spacing: -.07em; line-height: .92; margin-block: .4rem 1rem; }
+    .hero-lede { display: flex; align-items: center; justify-content: space-between; gap: .9rem 1.5rem; flex-wrap: wrap; margin-bottom: 1.35rem; }
+    .hero img { aspect-ratio: 3; object-position: center 48%; border-radius: 1.65rem 1.65rem 0 0; }
+    figcaption { padding: .35rem 0 .65rem; }
+    .day { display: grid; grid-template-columns: .9fr 1.1fr; gap: 1.5rem 3rem; }
+    .day .flow { align-self: start; }
+    .day ol { list-style: none; margin: 0; padding: 0; }
+    .day li { display: grid; grid-template-columns: 6.5rem 1fr; gap: .4rem 1rem; padding-block: .8rem; border-top: 1px solid var(--rule); }
+    .day h3 { font-size: 1.25rem; margin-bottom: .25rem; }
+    .day time { font-weight: bold; }
+    .first { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .first details { border-top: 1px solid var(--rule); }
+    .footer { margin-top: 1rem; }
+    @media (max-width: 767px) { .hero img { aspect-ratio: 1.6; } .day, .first { grid-template-columns: 1fr; } }
+    @media (max-width: 400px) { .day li { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="scene">
+    <header class="wrap top"><a class="wordmark" href="#main">Mudlark Day Club</a><nav aria-label="Main"><a href="#day">The day</a><a href="#first">First visit</a></nav></header>
+    <main id="main">
+    <section class="wrap hero">
+      <p class="eyebrow">Small-group dog daycare</p><h1>Big sniffs. Good naps.</h1>
+      <div class="hero-lede"><p>Play, sniff breaks, and quiet time for dogs who do best with a little structure. Every new dog starts with a short introduction.</p><a class="action" href="#first">Plan a meet &amp; greet <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+      <figure><img src="assets/mudlark.webp" alt="Golden retriever running through a field of grass" width="1440" height="480" fetchpriority="high"><figcaption class="note">Outdoor play reference · Photography by <a href="https://unsplash.com/photos/b7MWU185w3s">Michelle Huber</a></figcaption></figure>
+    </section>
+    <section class="section" id="day" style="background:var(--paper);color:var(--ink)"><div class="wrap day">
+      <div class="flow"><h2>A day at the club</h2><p>A sample rhythm for daycare dogs. How much group time a dog gets depends on how comfortable they are.</p></div>
+      <ol><li><time datetime="08:00">8:00 a.m.</time><div><h3>Settle in</h3><p>Easy handoff, water, and time to sniff before joining a group.</p></div></li><li><time datetime="10:00">10:00 a.m.</time><div><h3>Play in small groups</h3><p>Dogs are introduced with their size, energy, and play style in mind.</p></div></li><li><time datetime="12:30">12:30 p.m.</time><div><h3>Quiet break</h3><p>Time away from the group for water and a reset.</p></div></li><li><time datetime="16:30">4:30 p.m.</time><div><h3>Pickup notes</h3><p>Hear what your dog enjoyed and what we’d try next time.</p></div></li></ol>
+    </div></section>
+    <section class="panel section" id="first"><div class="wrap first">
+      <div class="flow"><h2>Start with a short hello.</h2><p>Tell us how your dog feels around other dogs. The introduction is a chance to see how they settle in.</p><details><summary>What would I bring?</summary><p>A leash, vaccination records, and anything the team should know about your dog’s routine or triggers.</p></details></div>
+      <form data-demo-form="Introduction preference:"><p class="note">Fictional daycare. Try the planner without making a reservation.</p><label>How does your dog greet new dogs?<select required><option value="">Choose the closest fit</option><option>Slow introduction</option><option>Curious and relaxed</option><option>Enthusiastic greeter</option><option>Unsure, let’s talk first</option></select></label><label>Preferred visit window<select required><option value="">Choose a window</option><option>Weekday morning</option><option>Weekday afternoon</option></select></label><button class="action">Preview first visit</button><p role="status"></p></form>
+    </div></section>
+    </main>
+  </div>
+  <footer class="wrap footer"><p>Mudlark Day Club · Fictional daycare concept</p><a href="../#library">Back to Web Storage</a></footer>
+</body>
+</html>
