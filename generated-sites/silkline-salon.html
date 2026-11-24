@@ -24,6 +24,12 @@
     .menu article h3 { font-size: 1.4rem; font-weight: 400; margin-bottom: .35rem; }
     .menu article a { padding: .65rem .05rem; font-weight: 800; }
     .visit { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .consult { border-top: 1px solid var(--rule); }
+    .consult dl { margin: 0; }
+    .consult dl div { padding-block: .8rem; border-top: 1px solid var(--rule); }
+    .consult dt { font-weight: 800; }
+    .consult dd { margin: .2rem 0 0; }
+    .questions details { border-top: 1px solid var(--rule); }
     @media (max-width: 767px) { .hero, .menu, .visit { grid-template-columns: 1fr; } .hero { padding-top: 2rem; } .hero img { aspect-ratio: 1.4; } }
   </style>
 </head>
@@ -43,10 +49,22 @@
         <article><div><h3>Color consultation</h3><p>For a big change, previous color, or an idea you want to talk through.</p></div><a href="#visit" data-service="consult" aria-label="Choose Color consultation">Choose <span aria-hidden="true">↗</span></a></article>
       </div>
     </section>
+    <section class="wrap section visit consult" aria-labelledby="consult-title">
+      <div class="flow"><h2 id="consult-title">What to bring to the chair</h2><p>Three details help a stylist turn an inspiration photo into a cut or color you can maintain.</p></div>
+      <dl>
+        <div><dt>One or two reference photos</dt><dd>Point out what you like: the length, the placement of the color, or the way the shape moves.</dd></div>
+        <div><dt>Your recent color history</dt><dd>Mention box dye, bleach, or salon color that may still be on your lengths.</dd></div>
+        <div><dt>Your usual styling routine</dt><dd>Say whether you air-dry, heat-style, or tend to tie your hair back. That changes which details will work day to day.</dd></div>
+      </dl>
+    </section>
     <section class="panel section" id="visit"><div class="wrap visit">
       <div class="flow"><h2>Plan your first visit.</h2><p>Choose a service and the part of the day that suits you. A real salon would confirm timing and pricing before booking.</p></div>
       <form data-demo-form="Selected service:"><p class="note">Fictional studio. Try the flow without sharing personal details.</p><label for="service">Service<select id="service" required><option value="">Choose a service</option><option value="cut">Cut &amp; shape</option><option value="color">Dimensional color</option><option value="consult">Color consultation</option></select></label><label>Preferred time<select required><option value="">Choose a time window</option><option>Morning</option><option>Afternoon</option><option>Either works</option></select></label><button class="action">Preview visit request</button><p role="status"></p></form>
     </div></section>
+    <section class="wrap section visit questions" aria-labelledby="salon-faq">
+      <h2 id="salon-faq">Before you book</h2>
+      <div><details><summary>What should I choose if I’m new to color?</summary><p>Start with a color consultation if you’re unsure how much change you want or how often you can come back.</p></details><details><summary>Can I plan a cut and color together?</summary><p>Choose the color service in the planner. A stylist would confirm the combined appointment length before booking.</p></details><details><summary>When would I know the price?</summary><p>A stylist would confirm the scope and quote after discussing your hair history, length, and desired result.</p></details><a href="#visit">Return to the visit planner</a></div>
+    </section>
   </main>
   <footer class="wrap footer"><p>Silkline Studio · Fictional salon concept</p><a href="../#library">Back to Web Storage</a></footer>
 </body>

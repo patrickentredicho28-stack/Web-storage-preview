@@ -27,6 +27,11 @@
     .scope { display: grid; grid-template-columns: 1fr 1.1fr; gap: 1.5rem 3rem; }
     .scope details { border-top: 1px solid var(--rule); }
     .request { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .report { border-block: 1px solid var(--rule); }
+    .report dl { margin: 0; }
+    .report dl div { padding-block: .75rem; border-top: 1px solid var(--rule); }
+    .report dt { font-weight: 700; }
+    .report dd { margin: .2rem 0 0; }
     @media (max-width: 767px) { .hero-head, .survey, .scope, .request { grid-template-columns: 1fr; } .survey img { aspect-ratio: 1.65; } }
   </style>
 </head>
@@ -39,7 +44,15 @@
       <div class="survey"><figure><img src="assets/ridgefield.webp" alt="Sunlight falling across a residential gable roof" width="1440" height="740" fetchpriority="high"><figcaption class="note">Reference photo by <a href="https://unsplash.com/photos/mzkx33pU2go">Valentin</a></figcaption></figure><div class="panel checklist"><h2>What we look at</h2><ul><li>01 · Roof covering and ridges</li><li>02 · Flashing around penetrations</li><li>03 · Gutters and drainage paths</li><li>04 · Visible signs of moisture</li></ul></div></div>
     </section>
     <section class="wrap section scope" id="scope"><div class="flow"><h2>From findings to options</h2><p>A written scope gives you a way to compare the work, materials, and exclusions before agreeing to a job.</p></div><div><details open><summary>Repair an isolated issue</summary><p>A localized problem may call for targeted work if the surrounding roof is in serviceable condition.</p></details><details><summary>Compare replacement scopes</summary><p>When wear is widespread, compare tear-off, ventilation, flashing, material choices, and cleanup in the same scope.</p></details><details><summary>Document storm concerns</summary><p>Record the date and describe what you can see safely from the ground. An inspection can document the visible condition.</p></details></div></section>
+    <section class="wrap section scope report" aria-labelledby="report-title">
+      <div class="flow"><p class="eyebrow">Illustrative report excerpt</p><h2 id="report-title">What comes back after a visit</h2><p>A sample showing how an inspector can distinguish what they observed from what still needs checking.</p></div>
+      <dl><div><dt>01 · Area checked</dt><dd>Rear roof slope where it meets the chimney.</dd></div><div><dt>02 · Visible finding</dt><dd>A gap along a section of flashing. The source of the interior stain still needs confirmation.</dd></div><div><dt>03 · Next step</dt><dd>Inspect the flashing and nearby materials in more detail before pricing a repair.</dd></div></dl>
+    </section>
     <section class="panel section" id="assessment"><div class="wrap request"><div class="flow"><h2>Tell us what you noticed.</h2><p>In a real assessment, the description would help a crew prepare and confirm the next step with you.</p></div><form data-demo-form="Roof concern:"><p class="note">Fictional contractor. This assessment is a demo.</p><label>Primary concern<select required><option value="">Select a concern</option><option>Water stain or leak</option><option>Missing or damaged shingles</option><option>Storm damage concern</option><option>Roof nearing replacement</option></select></label><label>When did you notice it?<select required><option value="">Select a timeframe</option><option>In the past week</option><option>In the past month</option><option>Longer ago or unsure</option></select></label><button class="action">Preview assessment request</button><p role="status"></p></form></div></section>
+    <section class="wrap section scope" aria-labelledby="roof-faq">
+      <h2 id="roof-faq">Before an inspection</h2>
+      <div><details><summary>What should I note before the visit?</summary><p>Write down when you first saw the issue, where it appears indoors, and whether it changes after rain. Ground-level photos may help.</p></details><details><summary>Does an inspection commit me to work?</summary><p>The report and any proposed scope are separate from approval. You can review the findings and decide what to do next.</p></details><details><summary>Can the crew inspect in bad weather?</summary><p>Conditions can limit what the crew can safely access. Ask which parts they can check and which need a return visit.</p></details><a href="#assessment">Return to the assessment planner</a></div>
+    </section>
   </main>
   <footer class="wrap footer"><p>Ridgefield Roofing · Fictional contractor concept</p><a href="../#library">Back to Web Storage</a></footer>
 </body>
